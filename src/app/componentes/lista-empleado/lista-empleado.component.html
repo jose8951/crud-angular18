@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="alert alert-primary" role="alert">
+    <p>lista-empleado works!</p>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Email</th>
+        <th>Fecha</th>
+        <th>Actualizar</th>
+        <th>Eliminar</th>
+        <th>Detalles</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empleado of empleado$ | async">
+        <td>{{ empleado.id }}</td>
+        <td>{{ empleado.nombre }}</td>
+        <td>{{ empleado.apellido }}</td>
+        <td>{{ empleado.email }}</td>
+        <td>{{ empleado.creadoEn | date : "dd/MM/yyyy" }}</td>
+        <td>
+          <button
+            class="btn btn-info btn-sm"
+            (click)="actualizarEmpleado(empleado.id)"
+          >
+            Actualizar
+          </button>
+        </td>
+        <td>
+          <button
+            class="btn btn-danger btn-sm"
+            (click)="eliminarEmpleado(empleado.id)"
+          >
+            Eliminar
+          </button>
+        </td>
+        <td>
+          <button
+            class="btn btn-primary btn-sm"
+            (click)="verDetallesDeEmpleado(empleado.id)"
+          >
+            Detalles
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>price</th>
+        <th>descripcion</th>
+        <th>imagen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of products$ | async">
+        <th>{{ producto.id }}</th>
+        <th>{{ producto.title }}</th>
+        <th>{{ producto.price }}</th>
+        <th>{{ producto.description }}</th>
+        <th>
+          <img src="{{ producto.image }}" alt="" style="width: 55px" />
+        </th>
+      </tr>
+    </tbody>
+  </table>
+-->
